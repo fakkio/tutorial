@@ -7,8 +7,7 @@
     "wix.vscode-import-cost",
     "pflannery.vscode-versionlens",
     "editorconfig.editorconfig",
-    "prisma.prisma",
-    "graphql.vscode-graphql"
+    "prisma.prisma"
   ],
   "unwantedRecommendations": []
 }

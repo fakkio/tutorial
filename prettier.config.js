@@ -1,5 +1,4 @@
 // https://prettier.io/docs/en/options.html
-/** @type {import('prettier').RequiredOptions} */
 module.exports = {
   trailingComma: 'es5',
   bracketSpacing: false,
@@ -11,7 +10,7 @@ module.exports = {
     {
       files: 'Routes.*',
       options: {
-        printWidth: 999,
+        printWidth: 200,
       },
     },
   ],
