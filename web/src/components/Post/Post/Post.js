@@ -1,6 +1,6 @@
-import { useMutation } from '@redwoodjs/web'
-import { toast } from '@redwoodjs/web/toast'
-import { Link, routes, navigate } from '@redwoodjs/router'
+import {useMutation} from "@redwoodjs/web";
+import {toast} from "@redwoodjs/web/toast";
+import {Link, routes, navigate} from "@redwoodjs/router";
 
 const DELETE_POST_MUTATION = gql`
   mutation DeletePostMutation($id: Int!) {
@@ -8,41 +8,41 @@ const DELETE_POST_MUTATION = gql`
       id
     }
   }
-`
+`;
 
 const jsonDisplay = (obj) => {
   return (
     <pre>
       <code>{JSON.stringify(obj, null, 2)}</code>
     </pre>
-  )
-}
+  );
+};
 
 const timeTag = (datetime) => {
   return (
     <time dateTime={datetime} title={datetime}>
       {new Date(datetime).toUTCString()}
     </time>
-  )
-}
+  );
+};
 
 const checkboxInputTag = (checked) => {
-  return <input type="checkbox" checked={checked} disabled />
-}
+  return <input type="checkbox" checked={checked} disabled />;
+};
 
-const Post = ({ post }) => {
+const Post = ({post}) => {
   const [deletePost] = useMutation(DELETE_POST_MUTATION, {
     onCompleted: () => {
-      toast.success('Post deleted')
-      navigate(routes.posts())
+      toast.success("Post deleted");
+      navigate(routes.posts());
     },
-  })
+  });
 
   const onDeleteClick = (id) => {
-    if (confirm('Are you sure you want to delete post ' + id + '?')) {
-      deletePost({ variables: { id } })
+    if (confirm("Are you sure you want to delete post " + id + "?")) {
+      deletePost({variables: {id}});
     }
-  }
+  };
 
   return (
     <>
@@ -75,7 +75,7 @@ const Post = ({ post }) => {
       </div>
       <nav className="rw-button-group">
         <Link
-          to={routes.editPost({ id: post.id })}
+          to={routes.editPost({id: post.id})}
           className="rw-button rw-button-blue"
         >
           Edit
@@ -89,7 +89,7 @@ const Post = ({ post }) => {
         </a>
       </nav>
     </>
-  )
-}
+  );
+};
 
-export default Post
+export default Post;

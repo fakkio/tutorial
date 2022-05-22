@@ -1,34 +1,34 @@
-import { render, screen, waitFor } from '@redwoodjs/testing'
+import {render, screen, waitFor} from "@redwoodjs/testing";
 
-import BlogLayout from './BlogLayout'
+import BlogLayout from "./BlogLayout";
 
-const EMAIL = 'rob@redwoodjs.com'
+const EMAIL = "rob@redwoodjs.com";
 const loggedIn = () => {
-  mockCurrentUser({ email: EMAIL })
-}
+  mockCurrentUser({email: EMAIL});
+};
 const loggedOut = () => {
-  mockCurrentUser(null)
-}
+  mockCurrentUser(null);
+};
 
-describe('BlogLayout', () => {
-  it('displays a Login link when not logged in', async () => {
-    loggedOut()
-    render(<BlogLayout />)
+describe("BlogLayout", () => {
+  it("displays a Login link when not logged in", async () => {
+    loggedOut();
+    render(<BlogLayout />);
 
-    await waitFor(() => expect(screen.getByText('Login')).toBeInTheDocument())
-  })
+    await waitFor(() => expect(screen.getByText("Login")).toBeInTheDocument());
+  });
 
-  it('displays a Logout link when logged in', async () => {
-    loggedIn()
-    render(<BlogLayout />)
+  it("displays a Logout link when logged in", async () => {
+    loggedIn();
+    render(<BlogLayout />);
 
-    await waitFor(() => expect(screen.getByText('Logout')).toBeInTheDocument())
-  })
+    await waitFor(() => expect(screen.getByText("Logout")).toBeInTheDocument());
+  });
 
   it("displays a logged in user's email address", async () => {
-    loggedIn()
-    render(<BlogLayout />)
+    loggedIn();
+    render(<BlogLayout />);
 
-    await waitFor(() => expect(screen.getByText(EMAIL)).toBeInTheDocument())
-  })
-})
+    await waitFor(() => expect(screen.getByText(EMAIL)).toBeInTheDocument());
+  });
+});

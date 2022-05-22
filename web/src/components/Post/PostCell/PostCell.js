@@ -1,4 +1,4 @@
-import Post from 'src/components/Post/Post'
+import Post from "src/components/Post/Post";
 
 export const QUERY = gql`
   query FindPostById($id: Int!) {
@@ -9,12 +9,12 @@ export const QUERY = gql`
       createdAt
     }
   }
-`
+`;
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => <div>Loading...</div>;
 
-export const Empty = () => <div>Post not found</div>
+export const Empty = () => <div>Post not found</div>;
 
-export const Success = ({ post }) => {
-  return <Post post={post} />
-}
+export const Success = ({post}) => {
+  return <Post post={post} />;
+};

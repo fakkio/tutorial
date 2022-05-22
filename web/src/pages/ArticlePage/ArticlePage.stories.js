@@ -1,7 +1,7 @@
-import ArticlePage from './ArticlePage'
+import ArticlePage from "./ArticlePage";
 
 export const generated = () => {
-  return <ArticlePage id={1} />
-}
+  return <ArticlePage id={1} />;
+};
 
-export default { title: 'Pages/ArticlePage' }
+export default {title: "Pages/ArticlePage"};

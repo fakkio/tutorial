@@ -7,9 +7,9 @@
 // 'src/pages/HomePage/HomePage.js'         -> HomePage
 // 'src/pages/Admin/BooksPage/BooksPage.js' -> AdminBooksPage
 
-import { Router, Route, Private, Set } from '@redwoodjs/router'
-import PostsLayout from 'src/layouts/PostsLayout'
-import BlogLayout from 'src/layouts/BlogLayout'
+import {Router, Route, Private, Set} from "@redwoodjs/router";
+import PostsLayout from "src/layouts/PostsLayout";
+import BlogLayout from "src/layouts/BlogLayout";
 
 const Routes = () => {
   return (
@@ -34,7 +34,7 @@ const Routes = () => {
       </Set>
       <Route notfound page={NotFoundPage} />
     </Router>
-  )
-}
+  );
+};
 
-export default Routes
+export default Routes;

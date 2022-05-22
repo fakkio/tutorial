@@ -1,5 +1,5 @@
-import { Link, navigate, routes } from '@redwoodjs/router'
-import { useRef } from 'react'
+import {Link, navigate, routes} from "@redwoodjs/router";
+import {useRef} from "react";
 import {
   Form,
   Label,
@@ -7,46 +7,46 @@ import {
   PasswordField,
   FieldError,
   Submit,
-} from '@redwoodjs/forms'
-import { useAuth } from '@redwoodjs/auth'
-import { MetaTags } from '@redwoodjs/web'
-import { toast, Toaster } from '@redwoodjs/web/toast'
-import { useEffect } from 'react'
+} from "@redwoodjs/forms";
+import {useAuth} from "@redwoodjs/auth";
+import {MetaTags} from "@redwoodjs/web";
+import {toast, Toaster} from "@redwoodjs/web/toast";
+import {useEffect} from "react";
 
 const SignupPage = () => {
-  const { isAuthenticated, signUp } = useAuth()
+  const {isAuthenticated, signUp} = useAuth();
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate(routes.home())
+      navigate(routes.home());
     }
-  }, [isAuthenticated])
+  }, [isAuthenticated]);
 
   // focus on email box on page load
-  const usernameRef = useRef()
+  const usernameRef = useRef();
   useEffect(() => {
-    usernameRef.current.focus()
-  }, [])
+    usernameRef.current.focus();
+  }, []);
 
   const onSubmit = async (data) => {
-    const response = await signUp({ ...data })
+    const response = await signUp({...data});
 
     if (response.message) {
-      toast(response.message)
+      toast(response.message);
     } else if (response.error) {
-      toast.error(response.error)
+      toast.error(response.error);
     } else {
       // user is signed in automatically
-      toast.success('Welcome!')
+      toast.success("Welcome!");
     }
-  }
+  };
 
   return (
     <>
       <MetaTags title="Signup" />
 
       <main className="rw-main w-96 mx-auto mt-12">
-        <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
+        <Toaster toastOptions={{className: "rw-toast", duration: 6000}} />
         <div className="rw-scaffold rw-login-container">
           <div className="rw-segment">
             <header className="rw-segment-header">
@@ -71,7 +71,7 @@ const SignupPage = () => {
                     validation={{
                       required: {
                         value: true,
-                        message: 'Username is required',
+                        message: "Username is required",
                       },
                     }}
                   />
@@ -93,7 +93,7 @@ const SignupPage = () => {
                     validation={{
                       required: {
                         value: true,
-                        message: 'Password is required',
+                        message: "Password is required",
                       },
                     }}
                   />
@@ -110,7 +110,7 @@ const SignupPage = () => {
             </div>
           </div>
           <div className="rw-login-link mt-2 text-center">
-            <span>Already have an account?</span>{' '}
+            <span>Already have an account?</span>{" "}
             <Link to={routes.login()} className="rw-link">
               Log in!
             </Link>
@@ -118,7 +118,7 @@ const SignupPage = () => {
         </div>
       </main>
     </>
-  )
-}
+  );
+};
 
-export default SignupPage
+export default SignupPage;

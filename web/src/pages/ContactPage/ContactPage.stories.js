@@ -1,7 +1,7 @@
-import ContactPage from './ContactPage'
+import ContactPage from "./ContactPage";
 
 export const generated = () => {
-  return <ContactPage />
-}
+  return <ContactPage />;
+};
 
-export default { title: 'Pages/ContactPage' }
+export default {title: "Pages/ContactPage"};

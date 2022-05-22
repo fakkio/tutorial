@@ -1,7 +1,7 @@
-import { useMutation } from '@redwoodjs/web'
-import { toast } from '@redwoodjs/web/toast'
-import { navigate, routes } from '@redwoodjs/router'
-import PostForm from 'src/components/Post/PostForm'
+import {useMutation} from "@redwoodjs/web";
+import {toast} from "@redwoodjs/web/toast";
+import {navigate, routes} from "@redwoodjs/router";
+import PostForm from "src/components/Post/PostForm";
 
 export const QUERY = gql`
   query FindPostById($id: Int!) {
@@ -12,7 +12,7 @@ export const QUERY = gql`
       createdAt
     }
   }
-`
+`;
 const UPDATE_POST_MUTATION = gql`
   mutation UpdatePostMutation($id: Int!, $input: UpdatePostInput!) {
     updatePost(id: $id, input: $input) {
@@ -22,21 +22,21 @@ const UPDATE_POST_MUTATION = gql`
       createdAt
     }
   }
-`
+`;
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => <div>Loading...</div>;
 
-export const Success = ({ post }) => {
-  const [updatePost, { loading, error }] = useMutation(UPDATE_POST_MUTATION, {
+export const Success = ({post}) => {
+  const [updatePost, {loading, error}] = useMutation(UPDATE_POST_MUTATION, {
     onCompleted: () => {
-      toast.success('Post updated')
-      navigate(routes.posts())
+      toast.success("Post updated");
+      navigate(routes.posts());
     },
-  })
+  });
 
   const onSave = (input, id) => {
-    updatePost({ variables: { id, input } })
-  }
+    updatePost({variables: {id, input}});
+  };
 
   return (
     <div className="rw-segment">
@@ -47,5 +47,5 @@ export const Success = ({ post }) => {
         <PostForm post={post} onSave={onSave} error={error} loading={loading} />
       </div>
     </div>
-  )
-}
+  );
+};

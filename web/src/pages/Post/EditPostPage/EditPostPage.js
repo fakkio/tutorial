@@ -1,7 +1,7 @@
-import EditPostCell from 'src/components/Post/EditPostCell'
+import EditPostCell from "src/components/Post/EditPostCell";
 
-const EditPostPage = ({ id }) => {
-  return <EditPostCell id={id} />
-}
+const EditPostPage = ({id}) => {
+  return <EditPostCell id={id} />;
+};
 
-export default EditPostPage
+export default EditPostPage;

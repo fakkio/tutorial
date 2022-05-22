@@ -5,18 +5,18 @@ import {
   Label,
   TextField,
   Submit,
-} from '@redwoodjs/forms'
+} from "@redwoodjs/forms";
 
 const formatDatetime = (value) => {
   if (value) {
-    return value.replace(/:\d{2}\.\d{3}\w/, '')
+    return value.replace(/:\d{2}\.\d{3}\w/, "");
   }
-}
+};
 
 const PostForm = (props) => {
   const onSubmit = (data) => {
-    props.onSave(data, props?.post?.id)
-  }
+    props.onSave(data, props?.post?.id);
+  };
 
   return (
     <div className="rw-form-wrapper">
@@ -40,7 +40,7 @@ const PostForm = (props) => {
           defaultValue={props.post?.title}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{required: true}}
         />
         <FieldError name="title" className="rw-field-error" />
 
@@ -56,7 +56,7 @@ const PostForm = (props) => {
           defaultValue={props.post?.body}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{required: true}}
         />
         <FieldError name="body" className="rw-field-error" />
 
@@ -67,7 +67,7 @@ const PostForm = (props) => {
         </div>
       </Form>
     </div>
-  )
-}
+  );
+};
 
-export default PostForm
+export default PostForm;

@@ -1,30 +1,30 @@
-import { db } from 'src/lib/db'
+import {db} from "src/lib/db";
 
 export const posts = () => {
-  return db.post.findMany()
-}
+  return db.post.findMany();
+};
 
-export const post = ({ id }) => {
+export const post = ({id}) => {
   return db.post.findUnique({
-    where: { id },
-  })
-}
+    where: {id},
+  });
+};
 
-export const createPost = ({ input }) => {
+export const createPost = ({input}) => {
   return db.post.create({
     data: input,
-  })
-}
+  });
+};
 
-export const updatePost = ({ id, input }) => {
+export const updatePost = ({id, input}) => {
   return db.post.update({
     data: input,
-    where: { id },
-  })
-}
+    where: {id},
+  });
+};
 
-export const deletePost = ({ id }) => {
+export const deletePost = ({id}) => {
   return db.post.delete({
-    where: { id },
-  })
-}
+    where: {id},
+  });
+};

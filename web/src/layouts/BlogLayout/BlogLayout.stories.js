@@ -1,13 +1,13 @@
-import BlogLayout from './BlogLayout'
+import BlogLayout from "./BlogLayout";
 
 export const loggedIn = () => {
-  mockCurrentUser({ email: 'rob@redwoodjs.com' })
+  mockCurrentUser({email: "rob@redwoodjs.com"});
 
-  return <BlogLayout />
-}
+  return <BlogLayout />;
+};
 
 export const loggedOut = () => {
-  return <BlogLayout />
-}
+  return <BlogLayout />;
+};
 
-export default { title: 'Layouts/BlogLayout' }
+export default {title: "Layouts/BlogLayout"};

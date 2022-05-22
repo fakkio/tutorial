@@ -1,46 +1,46 @@
-import { useEffect, useRef } from 'react'
-import { useAuth } from '@redwoodjs/auth'
-import { navigate, routes } from '@redwoodjs/router'
-import { MetaTags } from '@redwoodjs/web'
-import { toast, Toaster } from '@redwoodjs/web/toast'
-import { Form, Label, TextField, Submit, FieldError } from '@redwoodjs/forms'
+import {useEffect, useRef} from "react";
+import {useAuth} from "@redwoodjs/auth";
+import {navigate, routes} from "@redwoodjs/router";
+import {MetaTags} from "@redwoodjs/web";
+import {toast, Toaster} from "@redwoodjs/web/toast";
+import {Form, Label, TextField, Submit, FieldError} from "@redwoodjs/forms";
 
 const ForgotPasswordPage = () => {
-  const { isAuthenticated, forgotPassword } = useAuth()
+  const {isAuthenticated, forgotPassword} = useAuth();
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate(routes.home())
+      navigate(routes.home());
     }
-  }, [isAuthenticated])
+  }, [isAuthenticated]);
 
-  const usernameRef = useRef()
+  const usernameRef = useRef();
   useEffect(() => {
-    usernameRef.current.focus()
-  }, [])
+    usernameRef.current.focus();
+  }, []);
 
   const onSubmit = async (data) => {
-    const response = await forgotPassword(data.username)
+    const response = await forgotPassword(data.username);
 
     if (response.error) {
-      toast.error(response.error)
+      toast.error(response.error);
     } else {
       // The function `forgotPassword.handler` in api/src/functions/auth.js has
       // been invoked, let the user know how to get the link to reset their
       // password (sent in email, perhaps?)
       toast.success(
-        'A link to reset your password was sent to ' + response.email
-      )
-      navigate(routes.login())
+        "A link to reset your password was sent to " + response.email
+      );
+      navigate(routes.login());
     }
-  }
+  };
 
   return (
     <>
       <MetaTags title="Forgot Password" />
 
       <main className="rw-main">
-        <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
+        <Toaster toastOptions={{className: "rw-toast", duration: 6000}} />
         <div className="rw-scaffold rw-login-container">
           <div className="rw-segment">
             <header className="rw-segment-header">
@@ -83,7 +83,7 @@ const ForgotPasswordPage = () => {
         </div>
       </main>
     </>
-  )
-}
+  );
+};
 
-export default ForgotPasswordPage
+export default ForgotPasswordPage;

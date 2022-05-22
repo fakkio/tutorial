@@ -1,8 +1,8 @@
-import { Link, routes } from '@redwoodjs/router'
-import { useAuth } from '@redwoodjs/auth'
+import {Link, routes} from "@redwoodjs/router";
+import {useAuth} from "@redwoodjs/auth";
 
-const BlogLayout = ({ children }) => {
-  const { logIn, logOut, isAuthenticated, currentUser } = useAuth()
+const BlogLayout = ({children}) => {
+  const {logIn, logOut, isAuthenticated, currentUser} = useAuth();
 
   return (
     <>
@@ -58,7 +58,7 @@ const BlogLayout = ({ children }) => {
         {children}
       </main>
     </>
-  )
-}
+  );
+};
 
-export default BlogLayout
+export default BlogLayout;

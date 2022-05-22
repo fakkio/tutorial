@@ -1,7 +1,7 @@
-import { useMutation } from '@redwoodjs/web'
-import { toast } from '@redwoodjs/web/toast'
-import { navigate, routes } from '@redwoodjs/router'
-import PostForm from 'src/components/Post/PostForm'
+import {useMutation} from "@redwoodjs/web";
+import {toast} from "@redwoodjs/web/toast";
+import {navigate, routes} from "@redwoodjs/router";
+import PostForm from "src/components/Post/PostForm";
 
 const CREATE_POST_MUTATION = gql`
   mutation CreatePostMutation($input: CreatePostInput!) {
@@ -9,19 +9,19 @@ const CREATE_POST_MUTATION = gql`
       id
     }
   }
-`
+`;
 
 const NewPost = () => {
-  const [createPost, { loading, error }] = useMutation(CREATE_POST_MUTATION, {
+  const [createPost, {loading, error}] = useMutation(CREATE_POST_MUTATION, {
     onCompleted: () => {
-      toast.success('Post created')
-      navigate(routes.posts())
+      toast.success("Post created");
+      navigate(routes.posts());
     },
-  })
+  });
 
   const onSave = (input) => {
-    createPost({ variables: { input } })
-  }
+    createPost({variables: {input}});
+  };
 
   return (
     <div className="rw-segment">
@@ -32,7 +32,7 @@ const NewPost = () => {
         <PostForm onSave={onSave} loading={loading} error={error} />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default NewPost
+export default NewPost;

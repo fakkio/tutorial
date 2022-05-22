@@ -1,20 +1,20 @@
-import { Loading, Empty, Failure, Success } from './ArticlesCell'
-import { standard } from './ArticlesCell.mock'
+import {Loading, Empty, Failure, Success} from "./ArticlesCell";
+import {standard} from "./ArticlesCell.mock";
 
 export const loading = () => {
-  return Loading ? <Loading /> : null
-}
+  return Loading ? <Loading /> : null;
+};
 
 export const empty = () => {
-  return Empty ? <Empty /> : null
-}
+  return Empty ? <Empty /> : null;
+};
 
 export const failure = () => {
-  return Failure ? <Failure error={new Error('Oh no')} /> : null
-}
+  return Failure ? <Failure error={new Error("Oh no")} /> : null;
+};
 
 export const success = () => {
-  return Success ? <Success articles={standard().articles} /> : null
-}
+  return Success ? <Success articles={standard().articles} /> : null;
+};
 
-export default { title: 'Cells/ArticlesCell' }
+export default {title: "Cells/ArticlesCell"};

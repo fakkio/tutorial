@@ -1,7 +1,7 @@
-import NewPost from 'src/components/Post/NewPost'
+import NewPost from "src/components/Post/NewPost";
 
 const NewPostPage = () => {
-  return <NewPost />
-}
+  return <NewPost />;
+};
 
-export default NewPostPage
+export default NewPostPage;

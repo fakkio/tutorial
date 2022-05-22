@@ -1,4 +1,4 @@
-import { MetaTags } from '@redwoodjs/web'
+import {MetaTags} from "@redwoodjs/web";
 import {
   Form,
   TextField,
@@ -8,9 +8,9 @@ import {
   Label,
   FormError,
   useForm,
-} from '@redwoodjs/forms'
-import { useMutation } from '@redwoodjs/web'
-import { toast, Toaster } from '@redwoodjs/web/toast'
+} from "@redwoodjs/forms";
+import {useMutation} from "@redwoodjs/web";
+import {toast, Toaster} from "@redwoodjs/web/toast";
 
 const CREATE_CONTACT = gql`
   mutation CreateContactMutation($input: CreateContactInput!) {
@@ -18,22 +18,22 @@ const CREATE_CONTACT = gql`
       id
     }
   }
-`
+`;
 
 const ContactPage = () => {
-  const formMethods = useForm()
+  const formMethods = useForm();
 
-  const [create, { loading, error }] = useMutation(CREATE_CONTACT, {
+  const [create, {loading, error}] = useMutation(CREATE_CONTACT, {
     onCompleted: () => {
-      toast.success('Thank you for your submission!')
-      formMethods.reset()
+      toast.success("Thank you for your submission!");
+      formMethods.reset();
     },
-  })
+  });
 
   const onSubmit = (data) => {
-    create({ variables: { input: data } })
-    console.log(data)
-  }
+    create({variables: {input: data}});
+    console.log(data);
+  };
 
   return (
     <>
@@ -42,7 +42,7 @@ const ContactPage = () => {
       <Toaster />
       <Form
         onSubmit={onSubmit}
-        config={{ mode: 'onBlur' }}
+        config={{mode: "onBlur"}}
         error={error}
         formMethods={formMethods}
       >
@@ -61,7 +61,7 @@ const ContactPage = () => {
         </Label>
         <TextField
           name="name"
-          validation={{ required: true }}
+          validation={{required: true}}
           className="border rounded-sm px-2 py-1 outline-none"
           errorClassName="border rounded-sm px-2 py-1 border-red-700 outline-none"
         />
@@ -80,7 +80,7 @@ const ContactPage = () => {
             required: true,
             pattern: {
               value: /[^@]+@[^.]+\..+/,
-              message: 'Please enter a valid email address',
+              message: "Please enter a valid email address",
             },
           }}
           className="border rounded-sm px-2 py-1"
@@ -97,7 +97,7 @@ const ContactPage = () => {
         </Label>
         <TextAreaField
           name="message"
-          validation={{ required: true }}
+          validation={{required: true}}
           className="block border rounded-sm px-2 py-1"
           errorClassName="block border rounded-sm px-2 py-1 border-red-700 outline-none"
         />
@@ -111,7 +111,7 @@ const ContactPage = () => {
         </Submit>
       </Form>
     </>
-  )
-}
+  );
+};
 
-export default ContactPage
+export default ContactPage;
